@@ -11,6 +11,7 @@ public:
   void setFirst(char* newfirstname);
   void setLast(char* newlastname);
   void setGPA(float newgpa);
+  int getID();
 private:
   int id;
   char* firstname;

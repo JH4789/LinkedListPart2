@@ -15,6 +15,9 @@ void Student::setLast(char* newlastname) {
 void Student::setGPA(float newgpa) {
   gpa = newgpa;
 }
+int Student::getID() {
+  return id;
+}
 void Student::getYear() {
   cout << id << endl;
   cout << firstname << endl;
