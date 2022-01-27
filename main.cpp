@@ -4,7 +4,7 @@
 using namespace std;
 
 void addStudent(Node* &head, Node* prev, Node* current, Student* newstudent, int compareval);
-void printStudent();
+void printStudent(Node* next);
 void deleteStudent();
 
 int main() {
@@ -19,14 +19,14 @@ int main() {
      cout << "Please enter a command. Enter ADD to add a student, PRINT to print all students, DELETE to delete a student, AVERAGE to average student GPA's, and QUIT to quit the program." << endl;
      cin >> commandinput;
      if(strcmp(commandinput, "ADD") == 0){
-       Student* newstudent;
+       Student* newstudent = new Student();
        newstudent -> setID(12345);
        newstudent -> setGPA(3.5);
        compareval = newstudent->getID();
-       addStudent(head, prev, current, newstudent, compareval);
+       addStudent(head, head, head, newstudent, compareval);
      }
      else if(strcmp(commandinput, "PRINT") == 0) {
-      printStudent();
+      printStudent(head);
      }
      else if(strcmp(commandinput, "DELETE") == 0){
       deleteStudent();
@@ -45,20 +45,25 @@ int main() {
 void addStudent(Node* &head, Node* prev, Node* current, Student* newstudent, int compareval) {
   if(head == NULL) {
     head = new Node(newstudent);
+    head->setNext(NULL);
   }
   else if(current == NULL) {
     prev -> setNext(new Node(newstudent));
+    prev->getNext()->setNext(NULL);
   }
   else if(compareval < current->getStudent()->getID()) {
     prev->setNext(new Node(newstudent));
     prev->getNext()->setNext(current);
   }
   else {
-    addStudent(head, prev, current, newstudent, compareval);
-  }
-  current->getStudent()->getYear();
+    addStudent(head, current, current->getNext(), newstudent, compareval);
+   }  
 }
-void printStudent() {
+void printStudent(Node* next) {
+  if(next != NULL) {
+    next->getStudent()->getYear();
+    printStudent(next->getNext());
+  }
 }
 void deleteStudent() {
 }

@@ -19,8 +19,6 @@ int Student::getID() {
   return id;
 }
 void Student::getYear() {
-  cout << id << endl;
-  cout << firstname << endl;
-  cout << lastname << endl;
-  cout << gpa << endl;
+  cout << "The student's id is " << id << endl;
+  cout << "The student's GPA is " << gpa << endl;
 }
