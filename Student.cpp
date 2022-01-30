@@ -1,6 +1,6 @@
 #include "Student.h"
 #include <cstring>
-//Used for testing, largely based off of Student List
+//Largely based off of Student List, nothing much to see here
 void Student::setID(int newid) {
   id = newid;
 }
@@ -18,7 +18,12 @@ void Student::setGPA(float newgpa) {
 int Student::getID() {
   return id;
 }
-void Student::getYear() {
+float Student::getGPA() {
+  return gpa;
+}
+void Student::print() {
+  cout << "The student's first name is " << firstname << endl;
+  cout << "The student's last name is " << lastname << endl;
   cout << "The student's id is " << id << endl;
   cout << "The student's GPA is " << gpa << endl;
 }
