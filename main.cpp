@@ -118,7 +118,7 @@ void deleteStudent(Node* &head,Node* prev, Node* current, int deletevalue) {
   if(head == NULL) {
     cout << "There is nothing here! Try adding some students first" << endl;
   }
-  else if(deletevalue = current->getStudent()->getID()){
+  else if(deletevalue == current->getStudent()->getID()){
     if(current == head) {
       head = head->getNext();
       current->setNext(NULL);
